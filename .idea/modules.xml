@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/-JWT-Authentication-Console-Application.iml" filepath="$PROJECT_DIR$/.idea/-JWT-Authentication-Console-Application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JWT/JWT.iml" filepath="$PROJECT_DIR$/JWT/JWT.iml" />
     </modules>
   </component>
 </project>
