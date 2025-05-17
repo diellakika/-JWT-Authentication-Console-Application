@@ -33,11 +33,7 @@ public class JwtUtil {
             RSAPrivateKey privateKey = loadPrivateKey();
             Algorithm algorithm = Algorithm.RSA256(null, privateKey); // Only private key needed for signing
 
-            return JWT.create()
-                    .withSubject(username)
-                    .withIssuedAt(new Date())
-                    .withExpiresAt(new Date(System.currentTimeMillis() + 3600_000)) // 1 hour expiry
-                    .sign(algorithm);
+          
 
         } catch (Exception e) {
             throw new RuntimeException("Error generating JWT: " + e.getMessage(), e);
