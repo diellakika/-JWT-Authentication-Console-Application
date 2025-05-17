@@ -53,7 +53,7 @@ public class Server {
                 String command = in.readLine();
 
                 if ("logout".equalsIgnoreCase(command)) {
-                    TockenBlackList.add(token);
+                    TokenBlackList.add(token);
                     out.println("You have been logged out.");
                     System.out.println("User " + username + " u log out.");
                 } else {
