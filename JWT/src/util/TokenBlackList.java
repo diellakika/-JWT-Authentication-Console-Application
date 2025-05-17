@@ -3,7 +3,7 @@ package util;
 import java.util.HashSet;
 import java.util.Set;
 
-public class TokenBlacklist {
+public class TokenBlackList {
     private static final Set<String> blacklistedTokens = new HashSet<>();
 
     public static void add(String token) {
@@ -14,4 +14,3 @@ public class TokenBlacklist {
         return blacklistedTokens.contains(token);
     }
 }
-

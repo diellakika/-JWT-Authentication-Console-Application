@@ -1,15 +1,17 @@
 package server;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
+import util.JWTUtil;
 import util.TokenBlackList;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Date;
 
 public class Server {
+
     public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(8080)) {
             System.out.println("Server running on port 8080...");
@@ -39,13 +41,8 @@ public class Server {
             System.out.println("Password: " + password);
 
             if (UserService.authenticate(username, password)) {
-                Algorithm algorithm = Algorithm.HMAC256("secret");
-                String token = JWT.create()
-                        .withSubject(username)
-                        .withIssuedAt(new Date())
-                        .withExpiresAt(new Date(System.currentTimeMillis() + 3600_000))
-                        .sign(algorithm);
 
+                String token = JWTUtil.generateToken(username); // Përdorim JWTUtil për RSA
                 out.println("Authentication successful! JWT: " + token);
                 System.out.println("JWT sent to client: " + token);
 
