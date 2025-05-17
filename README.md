@@ -10,7 +10,7 @@ Ky projekt implementon një mekanizëm të thjeshtë autentifikimi duke përdoru
 
 ## 📦 Kërkesat
 
-- Java JDK 8 ose më i ri
+- Java JDK 10 ose më i ri
 - Maven (për menaxhimin e varësive)
 - Varësia: [`com.auth0:java-jwt`](https://github.com/auth0/java-jwt)
 
@@ -68,7 +68,7 @@ Kur të kërkohet, përdorni:
 ### `JwtUtil.java`
 
 - Gjeneron tokenat JWT
-- Përdor algoritmin **HMAC256** për nënshkrim
+- Përdor algoritmin **RSA** për nënshkrim
 - Tokeni përfshin:
   - Subjektin (emrin e përdoruesit)
   - Kohën e krijimit
