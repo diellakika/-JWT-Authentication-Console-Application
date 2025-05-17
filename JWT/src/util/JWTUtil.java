@@ -3,17 +3,16 @@ package util;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.security.interfaces.RSAPrivateKey;
 import java.security.KeyFactory;
+import java.security.interfaces.RSAPrivateKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Base64;
 import java.util.Date;
 
 
-public class JwtUtil {
+public class JWTUtil {
 
     private static RSAPrivateKey loadPrivateKey() throws Exception {
         // Load the private key from file
@@ -33,12 +32,12 @@ public class JwtUtil {
             RSAPrivateKey privateKey = loadPrivateKey();
             Algorithm algorithm = Algorithm.RSA256(null, privateKey); // Only private key needed for signing
 
-              return JWT.create()
+            return JWT.create()
                     .withSubject(username)
                     .withIssuedAt(new Date())
                     .withExpiresAt(new Date(System.currentTimeMillis() + 3600_000)) // 1 hour expiry
                     .sign(algorithm);
-          
+
 
         } catch (Exception e) {
             throw new RuntimeException("Error generating JWT: " + e.getMessage(), e);
